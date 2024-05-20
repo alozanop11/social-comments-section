@@ -1,0 +1,274 @@
+/* ° ********** Custom Properties ********** */
+:root {
+  --first-color: hsl(300, 43%, 22%);
+  --second-color: hsl(333, 80%, 67%);
+  --magenta-dark-color: hsl(303, 10%, 53%);
+  --magenta-light-color: hsl(300, 24%, 96%);
+  --white-color: hsl(0, 0%, 100%);
+  --link-color: hsl(228, 45%, 44%);
+  --font: "League Spartan", sans-serif;
+  --max-width: 1110px;
+}
+
+/* ° ********** Reset ********** */
+html {
+  box-sizing: border-box;
+  font-family: var(--font);
+  font-size: 15px;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+
+h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+h2,
+h4 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ° ********** Utilities ********** */
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: var(--max-width);
+}
+
+.section {
+  padding: 1rem 1rem;
+}
+
+/* ° ********** Site Styles ********** */
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+
+.attribution a {
+  color: var(--link-color);
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+  color: var(--first-color);
+  background-image: var(--bg-top-mobile), var(--bg-bottom-mobile);
+  background-repeat: no-repeat;
+  background-position: top left, bottom right;
+}
+
+.comment-card {
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: 64px 170px;
+  grid-template-rows: repeat(2, 20px) 145px;
+  justify-content: center;
+  align-content: center;
+  margin: 1rem auto;
+  width: 100%;
+  height: 244px;
+  background-color: var(--first-color);
+  border-radius: 0.67rem;
+}
+
+.comment-card img {
+  grid-row: 1/3;
+  grid-column: 1/2;
+  margin-right: 1.5rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.comment-card .name {
+  grid-row: 1/2;
+  grid-column: 2/3;
+  align-self: center;
+  font-weight: 700;
+  color: var(--white-color);
+}
+
+.comment-card p {
+  margin: 2rem 0 0;
+  grid-row: 3/4;
+  grid-column: 1/3;
+  font-weight: 500;
+  line-height: 1.5rem;
+  color: var(--white-color);
+}
+.comment-card .status {
+  grid-row: 2/3;
+  grid-column: 2/3;
+  align-self: center;
+  font-weight: 500;
+  color: var(--second-color);
+}
+
+.rated-stars {
+  margin: 1rem auto;
+  padding: 1rem;
+  width: 100%;
+  height: 4.7rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  background-color: var(--magenta-light-color);
+  border-radius: 0.25rem;
+}
+
+.header {
+  padding: 0 1rem 1rem;
+}
+
+.header h1 {
+  padding: 0 3rem 0rem 3rem;
+  font-weight: 700;
+  line-height: 2rem;
+  text-align: center;
+}
+
+.header p {
+  margin: 1rem auto 0;
+  text-align: center;
+  line-height: 1.2rem;
+  font-weight: 500;
+  color: var(--magenta-dark-color);
+}
+
+main {
+  margin: 5.33rem 0;
+}
+
+@media screen and (min-width: 768px) {
+  body {
+    background-image: var(--bg-top-desktop), var(--bg-bottom-desktop);
+    background-repeat: no-repeat;
+    background-position: top left, bottom right;
+  }
+
+  .comments-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 48%);
+    justify-content: space-between;
+  }
+
+  .comments-cards .card-3 {
+    grid-column: 1/3;
+  }
+
+  .comment-card {
+    width: 348px;
+    height: 230px;
+  }
+
+  .rateds-stars {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .rateds-stars .rated-1 {
+    margin: 1rem 0;
+    align-self: flex-start;
+  }
+
+  .rateds-stars .rated-2 {
+    margin: 1rem 0;
+    align-self: center;
+  }
+
+  .rateds-stars .rated-3 {
+    margin: 1rem 0;
+    align-self: flex-end;
+  }
+
+  .rated-stars {
+    flex-direction: row;
+    width: 444px;
+    height: 45px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .comments {
+    grid-column: 1/3;
+  }
+
+  .header {
+    grid-column: 1/2;
+  }
+
+  main {
+    display: grid;
+    grid-template-columns: repeat(2, 48%);
+    justify-content: space-between;
+    align-content: center;
+  }
+
+  .stars {
+    grid-column: 2/3;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .comments {
+    padding: 0;
+    grid-column: 1/11;
+  }
+
+  .comments-cards {
+    display: flex;
+    height: 266px;
+  }
+
+  .comment-card {
+    margin: 0;
+  }
+
+  .comments-cards .card-2 {
+    align-self: center;
+  }
+
+  .comments-cards .card-3 {
+    align-self: flex-end;
+  }
+
+  .header {
+    grid-column: 1/4;
+    padding: 0;
+  }
+
+  .header h1 {
+    padding: 0;
+    font-size: 3rem;
+    text-align: left;
+    line-height: 2.5rem;
+  }
+
+  .header p {
+    text-align: left;
+    font-size: 1.2rem;
+  }
+
+  main {
+    grid-template-columns: repeat(10, 10%);
+  }
+
+  .stars {
+    grid-column: 6/11;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
